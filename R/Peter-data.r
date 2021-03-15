@@ -1,0 +1,17 @@
+#' Peter's (1979) actual unidimensional data
+#'
+#' Peter's (1979) artificial unidimensional data consisting of six items. This
+#' dataset originally comes from Peter and Ryan (1976) and measures the
+#' probability of six types of losses on car purchases.This dataset yields
+#' relatively close values of reliability coefficients (Cho in press).
+#' @docType data
+#' @usage data(Peter)
+#' @references Cho, E. (in press). Neither Cronbach's alpha nor McDonald's omega:
+#'  A comment on Sijtsma and Pfadt. Psychometrika.
+#' @references Peter, J. P. (1979). Reliability: A review of psychometric basics
+#' and recent marketing practices. Journal of Marketing Research, 16(1), 6-17.
+#' @references Peter, J. P., & Ryan, M. J. (1976). An investigation of perceived
+#' risk at the brand level. Journal of Marketing Research, 13(2), 184-188.
+#' @author Eunseong Cho, \email{bene@kw.ac.kr}
+#'
+"Peter"
