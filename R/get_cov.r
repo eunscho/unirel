@@ -7,13 +7,11 @@
 #'
 #' @param data A dataframe or a matrix
 #' @return The covariance matrix
-#' @examples
-#' get_cov(Graham1)
 get_cov <- function(data) {
     if (nrow(data) == ncol(data)) {
         matrix <- as.matrix(data)
     } else {
-        matrix <- cov(data, use = "pairwise.complete.obs")
+        matrix <- stats::cov(data, use = "pairwise.complete.obs")
     }
     return(matrix)
 }

@@ -23,6 +23,7 @@
 #'
 #' @param data a dataframe or a matrix (unidimensional)
 #' @return coefficient alpha reliability estimate
+#' @export alpha
 #' @examples alpha(Graham1)
 #' @references Cho, E. (in press). Neither Cronbach's alpha nor McDonald's
 #' omega: A comment on Sijtsma and Pfadt. Psychometrika.
@@ -46,5 +47,8 @@
 #' @seealso [MBESS::ci.reliability()] for a related function of the package MBESS
 #'
 alpha <- function(data) {
-    return(mu0(data))
+  alpha <- mu0(data)
+  class(alpha) <- "alpha"
+  print.alpha <- labelled_output("coefficient alpha")
+  return(alpha)
 }

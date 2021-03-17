@@ -14,6 +14,7 @@
 #' @param data A dataframe or a matrix (unidimensional)
 #' @usage gilmer(data)
 #' @return The Gilmer-Fedlt coefficient
+#' @export gilmer
 #' @examples gilmer(Graham1)
 #' @references Cho, E. (in press). Neither Cronbach's alpha nor McDonald's omega: A comment on Sijtsma and Pfadt. Psychometrika.
 #' @references Feldt, L. S., & Charter, R. A. (2003). Estimation of internal consistency reliability when test parts vary in effective length. Measurement and Evaluation in Counseling and Development, 36(1), 23-27
@@ -37,5 +38,6 @@ gilmer <- function(data) {
     W <- W + D[i]^2
   }
   gilmer <- (Q / (Q - W)) * (sum(nondiag) / total)
+  class(gilmer) <- c("gilmer")
   return(gilmer)
 }
