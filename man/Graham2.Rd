@@ -7,6 +7,11 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
 }
+\source{
+Graham, J. M. (2006). Congeneric and (essentially) tau-equivalent
+estimates of score reliability what they are and how to use them. Educational
+and Psychological Measurement, 66(6), 930-944.
+}
 \usage{
 data(Graham2)
 }
@@ -19,18 +24,8 @@ the Dyadic Adjustment Scale. This dataset appears in Table 3. This dataset
  dataset provides a good indication of how sensitive
  each reliability coefficient  is to the violation of the tau equivalence
  assumption. The CFA reliability coefficient presented by the author is .83.
- There are currently various approaches to FA reliability, and this value
- can be used to check whether these approaches refer to the same thing (Cho
- in press).
 }
 \references{
-Cho, E. (in press). Neither Cronbach's alpha nor McDonald's
- omega: A comment on Sijtsma and Pfadt. Psychometrika.
-
-Graham, J. M. (2006). Congeneric and (essentially) tau-equivalent
-estimates of score reliability what they are and how to use them. Educational
-and Psychological Measurement, 66(6), 930-944.
-
 Graham, J. M., & Conoley, C. W. (2006). The role of marital
 attributions in the relationship between life stressors and marital quality.
 Personal Relationships, 13(2), 231-241.

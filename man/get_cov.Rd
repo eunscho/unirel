@@ -18,6 +18,3 @@ otherwise the covariance matrix is obtained.
 The covariance matrix uses the cov function of base,
 and the option for processing missing values is 'pairwise.complete.obs'.
 }
-\examples{
-get_cov(Graham1)
-}

@@ -7,20 +7,20 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
 }
+\source{
+Jöreskog, K. G. (1971). Statistical analysis of sets of
+congeneric tests. Psychometrika, 36(2), 109-133.
+}
 \usage{
 data(Lord)
 }
 \description{
-Lord's (1957) unidimensional data consisting of four items.This dataset is
-the result of the vocabulary test, and taken from Joreskog's (1971) table 2a.
+Lord's (1957) unidimensional data consisting of four items.
 }
 \references{
 Lord, F. M.(1957). A significance test for the hypothesis that two
 variables measure the same trait except for errors of measurement.
 Psychometrika, 22, 207-220.
-
-Jöreskog, K. G. (1971). Statistical analysis of sets of
-congeneric tests. Psychometrika, 36(2), 109-133.
 }
 \author{
 Eunseong Cho, \email{bene@kw.ac.kr}

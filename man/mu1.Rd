@@ -2,7 +2,7 @@
 % Please edit documentation in R/mu1.R
 \name{mu1}
 \alias{mu1}
-\title{Obtain Ten Berge and Socan's (2004) mu1}
+\title{Obtain Ten Berge and Zegers' (1978) mu1}
 \usage{
 mu1(data)
 }
@@ -10,10 +10,7 @@ mu1(data)
 \item{data}{a dataframe or a matrix (unidimensional)}
 }
 \description{
-Obtain Ten Berge and Socan's (2004) mu1. mu1 equals Guttman's (1945) lambda2.
-}
-\examples{
-mu1(Graham1)
+Obtain Ten Berge and Zegers' (1978) mu1. mu1 equals Guttman's (1945) lambda2.
 }
 \references{
 Guttman, L. (1945). A basis for analyzing test-retest reliability.

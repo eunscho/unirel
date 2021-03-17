@@ -7,19 +7,19 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
 }
+\source{
+Jöreskog, K. G. (1971). Statistical analysis of sets of
+congeneric tests. Psychometrika, 36(2), 109-133.
+}
 \usage{
 data(Votaw)
 }
 \description{
-Votaw's (1948) unidimensional data consisting of four items.This dataset is
-taken from Joreskog's (1971) table 1a.
+Votaw's (1948) unidimensional data consisting of four items.
 }
 \references{
 Votaw, D. F., Jr. Testing compound symmetry in a normal
 multivariate distribution.Annals of Mathematical Statistics, 1948, 19, 447-473.
-
-Jöreskog, K. G. (1971). Statistical analysis of sets of
-congeneric tests. Psychometrika, 36(2), 109-133.
 }
 \author{
 Eunseong Cho, \email{bene@kw.ac.kr}

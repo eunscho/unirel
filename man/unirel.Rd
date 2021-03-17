@@ -21,13 +21,13 @@ alpha coefficient alpha
 
 lambda2 Guttman's lambda2
 
-mu5 Ten Berge and Zegers' mu5
+mu2 Ten Berge and Zegers' mu2
 
-cc Feldt's classical congeneric reliability coefficient
+feldt Feldt's classical congeneric reliability coefficient
 
 gilmer the Gilmer-Fedlt coefficient
 
-cr unidimensional CFA (congeneric) reliability
+joreskog unidimensional CFA (congeneric) reliability
 
 lambda5 Guttman's lambda5
 

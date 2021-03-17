@@ -7,21 +7,17 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 4 rows and 4 columns.
 }
+\source{
+Feldt, L. S., & Brennan, R. L. (1989). Reliability. In R. L.
+Linn (Ed.), Educational measurement (3rd ed., pp. 105-146). American Council
+on Education and Macmillan.
+}
 \usage{
 data(FeldtBrennan)
 }
 \description{
 Feldt and Brennan's (1989) artificial unidimensional dataset consisting of
-4 items. Used by Cho (in press) to compare the accuracy of  reliability
-coefficients.
-}
-\references{
-Cho, E. (in press). Neither Cronbach's alpha nor McDonald's
- omega: A comment on Sijtsma and Pfadt. Psychometrika.
-
-Feldt, L. S., & Brennan, R. L. (1989). Reliability. In R. L.
-Linn (Ed.), Educational measurement (3rd ed., pp. 105-146). American Council
-on Education and Macmillan.
+4 items.
 }
 \author{
 Eunseong Cho, \email{bene@kw.ac.kr}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mu2.R
 \name{mu2}
 \alias{mu2}
-\title{Obtain Ten Berge and Socan's (2004) mu2}
+\title{Obtain Ten Berge and Zegers' (1978) mu2}
 \usage{
 mu2(data)
 }
@@ -10,7 +10,7 @@ mu2(data)
 \item{data}{a dataframe or a matrix (unidimensional)}
 }
 \description{
-Obtain Ten Berge and Socan's (2004) mu2.
+Obtain Ten Berge and Zegers' (1978) mu2.
 }
 \examples{
 mu2(Graham1)

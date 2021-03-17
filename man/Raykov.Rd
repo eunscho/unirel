@@ -7,22 +7,17 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 5 rows and 5 columns.
 }
+\source{
+Raykov, T. (2007). Reliability if deleted, not 'alpha if deleted':
+Evaluation of scale reliability following component deletion. British Journal
+of Mathematical and Statistical Psychology, 60(2), 201-216.
+}
 \usage{
 data(Raykov)
 }
 \description{
 Raykov's (2007) simulated unidimensional data consisting of five items.The
-fifth item is much more important than the others. It shows how sensitive
-each reliability coefficient is to the assumption of essential
-tau-equivalence (Cho in press).
-}
-\references{
-Cho, E. (in press). Neither Cronbach's alpha nor McDonald's omega:
- A comment on Sijtsma and Pfadt. Psychometrika.
-
-Raykov, T. (2007). Reliability if deleted, not 'alpha if deleted':
-Evaluation of scale reliability following component deletion. British Journal
-of Mathematical and Statistical Psychology, 60(2), 201-216.
+fifth item has 5.6 times greater importance than the other items.
 }
 \author{
 Eunseong Cho, \email{bene@kw.ac.kr}

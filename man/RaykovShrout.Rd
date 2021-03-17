@@ -7,17 +7,17 @@
 \format{
 An object of class \code{matrix} (inherits from \code{array}) with 6 rows and 6 columns.
 }
+\source{
+Raykov, T., & Shrout, P. E. (2002). Reliability of scales with
+general structure: Point and interval estimation using a structural equation
+modeling approach. Structural Equation Modeling, 9(2), 195-212.
+}
 \usage{
 data(RaykovShrout)
 }
 \description{
 Raykov and Shrout's (2002) simulated unidimensional data consisting of six
 items.
-}
-\references{
-Raykov, T., & Shrout, P. E. (2002). Reliability of scales with
-general structure: Point and interval estimation using a structural equation
-modeling approach. Structural Equation Modeling, 9(2), 195-212.
 }
 \author{
 Eunseong Cho, \email{bene@kw.ac.kr}
