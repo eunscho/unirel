@@ -36,6 +36,14 @@ unirel(Graham1)
 ```
 You can also get each coefficient separately.
 ``` r
+alpha(Graham1)
+## obtain coefficient alpha
 joreskog(Graham1)
 ## obtain composite (congeneric) reliability (unidimensional CFA reliability)
+gilmer(Graham1)
+## obtain the Gilmer-Feldt coefficient
+feldt(Graham1)
+## obtain Feldt's classical congeneric reliability
+mu2(Graham1)
+## obtain Ten Berge and Zegers' mu2
 ```
