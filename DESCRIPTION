@@ -1,24 +1,28 @@
 Package: unirel
 Type: Package
-Title: Compute Unidimensional Reliability Coefficients
-Version: 0.1.0
-Date: 2021-03-13
+Title: Compute and Compare Unidimensional Reliability Coefficients
+Version: 1.0.0
+Date: 2021-03-17
 Author: Eunseong Cho <bene@kw.ac.kr>
 Maintainer: Eunseong Cho <bene@kw.ac.kr>
-Description: Compute Unidimensional Reliability Coefficients. Various 
-    reliability coefficients are provided for comparison. It provides coefficient 
-    alpha, unidimensional confirmatory factor analysis reliability (congeneric 
-    reliability), Gilmer-Feldt coefficient, classical congeneric reliability, Ten 
-    Berge and Zegers' mu, etc.
+Description: Compute and compare unidimensional reliability coefficients. 
+    This package provides the following: coefficient alpha, unidimensional 
+    confirmatory factor analysis reliability (congeneric reliability), 
+    the Gilmer-Feldt coefficient, Feldt's classical congeneric reliability, and
+    mu2.Reliability coefficients provided by other packages are also gathered 
+    and compared. 
 License: GPL-2
-Suggests: 
-    lavaan,
+Imports: 
     Lambda4,
+    lavaan,
     psych,
+    Rcsdp
+Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
 Encoding: UTF-8
+URL: https://github.com/eunscho/unirel
 LazyData: true
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
