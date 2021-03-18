@@ -18,10 +18,11 @@ reliability coefficients.
 
 ## Installation
 
-You can install the released version of unirel from [CRAN](https://CRAN.R-project.org) with:
+You can download and install it from Github using the devtools package:
 
 ``` r
-install.packages("unirel")
+install.packages("devtools")
+devtools::install_github("eunscho/unirel")
 ```
 
 ## Example
