@@ -12,6 +12,8 @@ reliability coefficients.
   + Unidimensional confirmatory factor analysis reliability, commonly referred to as composite reliability
   + Gilmer-Feldt reliability coefficient
   + Feldt's classical congeneric reliability coefficient
+  + Hancock's H
+  + Ten Berge and Zegers's mu series
 + Collects and compare reliability coefficients provided by other packages
   + Two versions of GLB (greatest lower bounds) offered by the package psych
   + Guttman's lamdas offered by the package Lambda4 
