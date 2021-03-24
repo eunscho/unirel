@@ -17,6 +17,8 @@
 #'@return alpha coefficient alpha
 #'@return lambda2 Guttman's lambda2
 #'@return mu2 Ten Berge and Zegers' mu2
+#'@return mu3 Ten Berge and Zegers' mu3
+#'@return mu4 Ten Berge and Zegers' mu4
 #'@return feldt Feldt's classical congeneric reliability coefficient
 #'@return gilmer the Gilmer-Fedlt coefficient
 #'@return joreskog unidimensional CFA (congeneric) reliability
@@ -39,12 +41,15 @@
 #' @seealso [psych::GLB.fa()] for a related function of the package psych
 
 unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
-    alpha <- alpha(data)
+    alpha <- unirel::alpha(data)
     lambda2 <- mu1(data)
     mu2 <- mu2(data)
+    mu3 <- mu3(data)
+    mu4 <- mu4(data)
     feldt <- feldt(data)
     gilmer <- gilmer(data)
     joreskog <- joreskog(data)
+    hancock <- hancock(data)
     if (Lambda4.include) {
         stopifnot(requireNamespace("Lambda4"))
         lambda5 <- as.numeric(Lambda4::lambda5(data, missing = "pairwise"))
@@ -59,47 +64,18 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     }
     if (psych.include) {
         stopifnot(requireNamespace("psych"))
-        stopifnot(requireNamespace("Rcsdp"))
         glb.algebraic <- psych::glb.algebraic(data)$glb[1]
         glb.fa <- psych::glb.fa(data)$glb[1]
     } else {
         glb.algebraic <- glb.fa <- NULL
     }
     unirel <- list(alpha = alpha, lambda2 = lambda2,
-                   mu2 = mu2, feldt = feldt,
-                   gilmer = gilmer, joreskog = joreskog, lambda5 = lambda5,
-                   lambda6 = lambda6, max_lambda = max_lambda,
+                   mu2 = mu2, mu3 = mu3, mu4 = mu4, feldt = feldt,
+                   gilmer = gilmer, joreskog = joreskog, hancock = hancock,
+                   lambda5 = lambda5,lambda6 = lambda6, max_lambda = max_lambda,
                    lambda4_max = lambda4_max, lambda4_75 = lambda4_75,
                    glb.algebraic = glb.algebraic, glb.fa = glb.fa)
     class(unirel) <- c("unirel")
-    print.unirel <- function(x, ...){
-        cat("14 unidimensional reliability coefficients\n")
-        cat("coefficient alpha (tau-equivalent reliability)\n")
-        cat(round(x$alpha, DIGITS))
-        cat("\nGuttman's lambda2\n")
-        cat(round(x$lambda2, DIGITS))
-        cat("\nTen Berge and Zegers' mu2\n")
-        cat(round(x$mu2, DIGITS))
-        cat("\nFeldt's classical congeneric reliability\n")
-        cat(round(x$feldt, DIGITS))
-        cat("\nGilmer-Feldt's reliability coefficient\n")
-        cat(round(x$gilmer, DIGITS))
-        cat("\nJoreskog's congeneric (unidimensional CFA) coefficient\n")
-        cat(round(x$joreskog, DIGITS))
-        cat("\nGuttman's lambda5\n")
-        cat(round(x$lambda5, DIGITS))
-        cat("\nGuttman's lambda6\n")
-        cat(round(x$lambda6, DIGITS))
-        cat("\nMaximum among Guttman's lambda2, lambda5, and lambda6\n")
-        cat(round(x$max_lambda, DIGITS))
-        cat("\nMaximum among all possible split-half reliability(lambda4)\n")
-        cat(round(x$lambda4_max, DIGITS))
-        cat("\n75th percentile among all possible split-half reliability(lambda4)\n")
-        cat(round(x$lambda4_75, DIGITS))
-        cat("\nGLB.algebraic (greatest lower bounds)\n")
-        cat(round(x$glb.algebraic, DIGITS))
-        cat("\nGLB.fa (greatest lower bounds)\n")
-        cat(round(x$glb.fa, DIGITS))
-    }
+
     return(unirel)
 }
