@@ -45,6 +45,8 @@ gilmer(Graham1)
 ## obtain the Gilmer-Feldt coefficient
 feldt(Graham1)
 ## obtain Feldt's classical congeneric reliability
+hancock(Graham1)
+## obtain Hancock's H (maximal reliability)
 mu2(Graham1)
 ## obtain Ten Berge and Zegers' mu2
 ```
