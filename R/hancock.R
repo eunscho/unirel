@@ -22,6 +22,7 @@
 #' here. Psychological Methods, 23(3), 412-433.
 hancock <- function(data) {
     stopifnot(requireNamespace("lavaan"))
+    library(lavaan)
     matrix <- get_cov(data)
     k <- nrow(matrix)
     rownames(matrix) <- character(length = k)
