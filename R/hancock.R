@@ -22,7 +22,6 @@
 #' here. Psychological Methods, 23(3), 412-433.
 hancock <- function(data) {
     stopifnot(requireNamespace("lavaan"))
-    library(lavaan)
     matrix <- get_cov(data)
     k <- nrow(matrix)
     rownames(matrix) <- character(length = k)
@@ -37,7 +36,7 @@ hancock <- function(data) {
     model_str <- paste(model_str, " \n F ~~ 1*F", sep = "", collapse = "\n")
     colnames(matrix) <- rownames(matrix)
     fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
-    std_lambda <- lavaan::standardizedsolution(fit)$est.std[1:k]
+    std_lambda <- lavaan::standardizedSolution(fit)$est.std[1:k]
     prop_lambda <- std_lambda^2 / (1 - std_lambda^2)
     hancock <- 1 / (1 + 1 / sum(prop_lambda))
     #class(hancock) <- c("hancock")
