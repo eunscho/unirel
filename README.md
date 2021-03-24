@@ -50,3 +50,15 @@ hancock(Graham1)
 mu2(Graham1)
 ## obtain Ten Berge and Zegers' mu2
 ```
+## Troubleshooting
+
+Sometimes an error message appears.
+
+``` r
+Error in standardizedsolution(fit) :
+```
+The solution is to activate the lavaan package.
+
+``` r
+library(lavaan)
+```
