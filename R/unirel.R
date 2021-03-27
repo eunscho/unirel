@@ -14,7 +14,7 @@
 #'lambda4_75)
 #'@param psych.include Whether to include reliability coefficients
 #'(GLB.algebraic, GLB.fa) provided by the package psych
-#'@return alpha coefficient alpha
+#'@return alpha coefficient alpha (tau-equivalent reliability)
 #'@return lambda2 Guttman's lambda2
 #'@return mu2 Ten Berge and Zegers' mu2
 #'@return mu3 Ten Berge and Zegers' mu3
@@ -22,6 +22,9 @@
 #'@return feldt Feldt's classical congeneric reliability coefficient
 #'@return gilmer the Gilmer-Fedlt coefficient
 #'@return joreskog unidimensional CFA (congeneric) reliability
+#'@return hancock Hancock's H
+#'@return heise Heise-Borhnstedt's Omega
+#'@return kaiser Kaiser-Caffrey's alpha
 #'@return lambda5 Guttman's lambda5
 #'@return lambda5 Guttman's lambda6
 #'@return max_lambda the maximum among lambda2, lambda5, and lambda6
@@ -50,6 +53,8 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     gilmer <- gilmer(data)
     joreskog <- joreskog(data)
     hancock <- hancock(data)
+    heise <- heise(data)
+    kaiser <- kaiser(data)
     if (Lambda4.include) {
         stopifnot(requireNamespace("Lambda4"))
         lambda5 <- as.numeric(Lambda4::lambda5(data, missing = "pairwise"))
@@ -72,6 +77,7 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     unirel <- list(alpha = alpha, lambda2 = lambda2,
                    mu2 = mu2, mu3 = mu3, mu4 = mu4, feldt = feldt,
                    gilmer = gilmer, joreskog = joreskog, hancock = hancock,
+                   heise = heise, kaiser = kaiser,
                    lambda5 = lambda5,lambda6 = lambda6, max_lambda = max_lambda,
                    lambda4_max = lambda4_max, lambda4_75 = lambda4_75,
                    glb.algebraic = glb.algebraic, glb.fa = glb.fa)
