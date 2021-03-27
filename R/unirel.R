@@ -24,14 +24,14 @@
 #'@return joreskog unidimensional CFA (congeneric) reliability
 #'@return hancock Hancock's H
 #'@return heise Heise-Borhnstedt's Omega
-#'@return kaiser Kaiser-Caffrey's alpha
+#'@return kaisercaffrey Kaiser-Caffrey's alpha
 #'@return lambda5 Guttman's lambda5
 #'@return lambda5 Guttman's lambda6
 #'@return max_lambda the maximum among lambda2, lambda5, and lambda6
 #'@return lambda4_max the maximum among all possible lambda4
 #'@return lambda4_75 the 75the percentile among all possible lambda4
-#'@return glb.algebraic the original estimation of the greatest lower bounds
-#'@return glb.fa an improvement of the greatest lower bounds by the psych package
+#'@return glb.fa the greatest lower bounds by Ten Berge & Kiers (1991) method
+#'@return glb.algebraic  the greatest lower bounds by Moltner & Revelle (2015) method
 #'@export unirel
 #' @import Rcsdp
 #' @references Cho, E. (in press). Neither Cronbach's alpha nor McDonald's
@@ -54,7 +54,7 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     joreskog <- joreskog(data)
     hancock <- hancock(data)
     heise <- heise(data)
-    kaiser <- kaiser(data)
+    kaisercaffrey <- kaisercaffrey(data)
     if (Lambda4.include) {
         stopifnot(requireNamespace("Lambda4"))
         lambda5 <- as.numeric(Lambda4::lambda5(data, missing = "pairwise"))
@@ -77,7 +77,7 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     unirel <- list(alpha = alpha, lambda2 = lambda2,
                    mu2 = mu2, mu3 = mu3, mu4 = mu4, feldt = feldt,
                    gilmer = gilmer, joreskog = joreskog, hancock = hancock,
-                   heise = heise, kaiser = kaiser,
+                   heise = heise, kaisercaffrey = kaisercaffrey,
                    lambda5 = lambda5,lambda6 = lambda6, max_lambda = max_lambda,
                    lambda4_max = lambda4_max, lambda4_75 = lambda4_75,
                    glb.algebraic = glb.algebraic, glb.fa = glb.fa)
