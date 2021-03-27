@@ -53,7 +53,7 @@ hancock(Graham1)
 ## obtain Hancock's H (maximal reliability)
 heise(Graham1)
 ## obtain Heise-Borhnstedt's Omega
-kaiser(Graham1)
+kaisercaffrey(Graham1)
 ## obtain Kaiser-Caffrey's alpha
 mu2(Graham1)
 ## obtain Ten Berge and Zegers' mu2
