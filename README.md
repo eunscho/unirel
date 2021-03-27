@@ -49,8 +49,16 @@ feldt(Graham1)
 ## obtain Feldt's classical congeneric reliability
 hancock(Graham1)
 ## obtain Hancock's H (maximal reliability)
+heise(Graham1)
+## obtain Heise-Borhnstedt's Omega
+kaiser(Graham1)
+## obtain Kaiser-Caffrey's alpha
 mu2(Graham1)
 ## obtain Ten Berge and Zegers' mu2
+mu3(Graham1)
+## obtain Ten Berge and Zegers' mu3
+mu4(Graham1)
+## obtain Ten Berge and Zegers' mu4
 ```
 ## Troubleshooting
 
