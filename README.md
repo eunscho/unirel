@@ -31,7 +31,7 @@ devtools::install_github("eunscho/unirel")
 
 ## Example
 
-The most typical use would be the unirel function comparing 20 reliability 
+The most typical use would be the unirel function comparing 18 reliability 
 coefficients:
 
 ``` r
