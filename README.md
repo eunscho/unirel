@@ -13,6 +13,8 @@ reliability coefficients.
   + Gilmer-Feldt reliability coefficient
   + Feldt's classical congeneric reliability coefficient
   + Hancock's H
+  + Heise-Borhnstedt's Omega
+  + Kaiser-Caffrey's alpha
   + Ten Berge and Zegers's mu series
 + Collects and compare reliability coefficients provided by other packages
   + Two versions of GLB (greatest lower bounds) offered by the package psych
