@@ -24,6 +24,7 @@ heise <- function(data) {
     sum <- sum + diag(matrix)[i] * psych::fa(matrix, nfactors = k)$communality[i]
   }
   omega <- 1 - (sum(diag(matrix)) - sum) / sum(matrix)
+  class(heise) <- c("heise")
   return(omega)
 
 }

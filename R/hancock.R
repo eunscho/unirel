@@ -39,6 +39,6 @@ hancock <- function(data) {
     std_lambda <- lavaan::standardizedSolution(fit)$est.std[1:k]
     prop_lambda <- std_lambda^2 / (1 - std_lambda^2)
     hancock <- 1 / (1 + 1 / sum(prop_lambda))
-    #class(hancock) <- c("hancock")
+    class(hancock) <- c("hancock")
     return(hancock)
 }

@@ -29,5 +29,6 @@ kaiser <- function(data) {
   k <- nrow(matrix)
   first_eigen <- eigen(stats::cov2cor(matrix))$values[1]
   kaiser <- k / (k - 1) * (1 - 1 / first_eigen)
+  class(kaiser) <- c("kaiser")
   return(kaiser)
 }
