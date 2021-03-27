@@ -17,7 +17,7 @@ print.hancock <- labelled_output("Hancock's H (CFA maximal reliability)")
 print.heise <- labelled_output("Heise-Borhnstedt's Omega")
 print.kaiser <- labelled_output("Kaiser-Caffrey's alpha")
 print.unirel <- function(x, ...){
-  cat("20 unidimensional reliability coefficients")
+  cat("18 unidimensional reliability coefficients")
   cat("\ncoefficient alpha (tau-equivalent reliability, mu0)               ")
   cat(round(x$alpha, DIGITS))
   cat("\nGuttman's lambda2 (mu1)                                           ")
