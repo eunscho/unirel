@@ -50,9 +50,9 @@ print.unirel <- function(x, ...){
   cat(round(x$lambda4_max, DIGITS))
   cat("\n75th percentile among all possible split-half reliability(lambda4)")
   cat(round(x$lambda4_75, DIGITS))
-  cat("\nGLB.algebraic (greatest lower bounds)                             ")
+  cat("\nGLB.algebraic (greatest lower bounds by Moltner & Revelle (2015)) ")
   cat(round(x$glb.algebraic, DIGITS))
-  cat("\nGLB.fa (greatest lower bounds)                                    ")
+  cat("\nGLB.fa (greatest lower bounds by Ten Berge & Kiers (1991))        ")
   cat(round(x$glb.fa, DIGITS))
 }
 
