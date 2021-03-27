@@ -15,7 +15,7 @@ reliability coefficients.
   + Hancock's H
   + Heise-Borhnstedt's Omega
   + Kaiser-Caffrey's alpha
-  + Ten Berge and Zegers's mu series
+  + Ten Berge and Zegers's mu series (mu0 ~ mu4)
 + Collects and compare reliability coefficients provided by other packages
   + Two versions of GLB (greatest lower bounds) offered by the package psych
   + Guttman's lamdas offered by the package Lambda4 
