@@ -37,7 +37,7 @@ hancock Hancock's H
 
 heise Heise-Borhnstedt's Omega
 
-kaiser Kaiser-Caffrey's alpha
+kaisercaffrey Kaiser-Caffrey's alpha
 
 lambda5 Guttman's lambda5
 
@@ -49,9 +49,9 @@ lambda4_max the maximum among all possible lambda4
 
 lambda4_75 the 75the percentile among all possible lambda4
 
-glb.algebraic the original estimation of the greatest lower bounds
+glb.fa the greatest lower bounds by Ten Berge & Kiers (1991) method
 
-glb.fa an improvement of the greatest lower bounds by the psych package
+glb.algebraic  the greatest lower bounds by Moltner & Revelle (2015) method
 }
 \description{
 R packages that provide unidimensional reliability coefficients include
