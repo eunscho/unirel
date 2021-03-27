@@ -17,17 +17,27 @@ lambda4_75)}
 (GLB.algebraic, GLB.fa) provided by the package psych}
 }
 \value{
-alpha coefficient alpha
+alpha coefficient alpha (tau-equivalent reliability)
 
 lambda2 Guttman's lambda2
 
 mu2 Ten Berge and Zegers' mu2
+
+mu3 Ten Berge and Zegers' mu3
+
+mu4 Ten Berge and Zegers' mu4
 
 feldt Feldt's classical congeneric reliability coefficient
 
 gilmer the Gilmer-Fedlt coefficient
 
 joreskog unidimensional CFA (congeneric) reliability
+
+hancock Hancock's H
+
+heise Heise-Borhnstedt's Omega
+
+kaiser Kaiser-Caffrey's alpha
 
 lambda5 Guttman's lambda5
 
