@@ -18,7 +18,7 @@ data(Spearman)
 Spearman's (1999)  unidimensional data of six items. The data was collected 
 from school children in London. This data is historical data from which the 
 first factor analysis was carried out. Spearman's factor analysis model was 
-a unidimensional model, but other than this data, data that satisfies a 
+a unidimensional model, but other than this dataset, data that satisfies a 
 unidimension were uncommon (Hägglund, 2001).
 }
 \references{
