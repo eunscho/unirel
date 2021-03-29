@@ -19,6 +19,7 @@ reliability coefficients.
 + Collects and compare reliability coefficients provided by other packages
   + Two versions of GLB (greatest lower bounds) offered by the package psych
   + Guttman's lamdas offered by the package Lambda4 
++ Test essential tau-equivalence and explore unidimensionality
 
 ## Installation
 
@@ -61,6 +62,11 @@ mu3(Graham1)
 ## obtain Ten Berge and Zegers' mu3
 mu4(Graham1)
 ## obtain Ten Berge and Zegers' mu4
+```
+You can test essential tau-equivalence and explore unidimensionality.
+``` r
+test.tauequivalence(Graham1)
+## test the assumption of essential tau-equivalence 
 ```
 ## Troubleshooting
 
