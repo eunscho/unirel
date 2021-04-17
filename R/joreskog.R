@@ -61,9 +61,13 @@ joreskog <- function(data) {
     colnames(matrix) <- rownames(matrix)
     fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
     est <- lavaan::inspect(fit, what = "est")
-    sum_lambda <- sum(est$lambda)
-    sum_theta <- sum(est$theta)
-    joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
+    if(any(est$theta < 0)) { # negative error
+      joreskog <- NA
+    } else {
+      sum_lambda <- sum(est$lambda)
+      sum_theta <- sum(est$theta)
+      joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
+    }
     class(joreskog) <- c("joreskog")
     return(joreskog)
 }

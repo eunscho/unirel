@@ -27,16 +27,21 @@ gilmer <- function(data) {
   k <- nrow(matrix)
   total <- sum(matrix)
   nondiag <- numeric(k)
+  D <- numeric(k)
   for (i in 1:k) {
     nondiag[i] <- rowSums(matrix)[i] - diag(matrix)[i]
   }
   key_row <- matrix[order(nondiag)[k], ] # A, B, C, D in Feldt and Charter
-  D <- (nondiag - key_row) / (max(nondiag) - key_row)
-  Q <- sum(D)^2
   W <- 0
   for (i in 1:k) {
+    if(nondiag[i] == max(nondiag)) {
+      D[i] <- 1
+    } else {
+      D[i] <- (nondiag[i] - key_row[i]) / (max(nondiag) - key_row[i])
+    }
     W <- W + D[i]^2
   }
+  Q <- sum(D)^2
   gilmer <- (Q / (Q - W)) * (sum(nondiag) / total)
   class(gilmer) <- c("gilmer")
   return(gilmer)
