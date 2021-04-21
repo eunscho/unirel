@@ -24,7 +24,7 @@ hancock <- function(data) {
     stopifnot(requireNamespace("lavaan"))
     stopifnot(requireNamespace("matrixcalc"))
     matrix <- get_cov(data)
-    if (!matrixcalc::is.positive.semi.definite()) {
+    if (!matrixcalc::is.positive.semi.definite(matrix)) {
         hancock <- NA
     } else {
         k <- nrow(matrix)
