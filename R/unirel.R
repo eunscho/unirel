@@ -33,6 +33,8 @@
 #'@return lambda4_75 the 75the percentile among all possible lambda4
 #'@return glb.fa the greatest lower bounds by Ten Berge & Kiers (1991) method
 #'@return glb.algebraic  the greatest lower bounds by Moltner & Revelle (2015) method
+#'@return omega_Lambda4 omega total (factors = 1) provided by the package Lambda4
+#'@return omega_psych omega total (nfactors = 1) provided by the package psych
 #'@export unirel
 #' @import Rcsdp
 #' @references Cho, E. (in press). Neither Cronbach's alpha nor McDonald's
