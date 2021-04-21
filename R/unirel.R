@@ -48,7 +48,8 @@
 
 unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     alpha <- unirel::alpha(data)
-    std_alpha <- unirel::alpha(stats::cov2cor(data))
+    std_alpha <- ifelse(isSymmetric(data), unirel::alpha(stats::cov2cor(data)), 
+                                           unirel::alpha(stats::cor(data)))
     lambda2 <- mu1(data)
     mu2 <- mu2(data)
     mu3 <- mu3(data)
