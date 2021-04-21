@@ -63,9 +63,9 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
         lambda6 <- as.numeric(Lambda4::lambda6(data, missing = "pairwise"))
         max_lambda <- max(lambda2, lambda5, lambda6)
         lambda4_max <- Lambda4::quant.lambda4(data, missing = "pairwise",
-                                     quantiles = 1)$lambda4.quantile
+                                              quantiles = 1)$lambda4.quantile
         lambda4_75 <- Lambda4::quant.lambda4(data, missing = "pairwise",
-                                    quantiles = 0.75)$lambda4.quantile
+                                             quantiles = 0.75)$lambda4.quantile
     } else {
         lambda5 <- lambda6 <- max_lambda <- lambda4_max <- lambda4_75 <- NULL
     }
@@ -84,6 +84,6 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
                    lambda4_max = lambda4_max, lambda4_75 = lambda4_75,
                    glb.algebraic = glb.algebraic, glb.fa = glb.fa)
     class(unirel) <- c("unirel")
-
+    
     return(unirel)
 }
