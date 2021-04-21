@@ -22,27 +22,32 @@
 #' here. Psychological Methods, 23(3), 412-433.
 hancock <- function(data) {
     stopifnot(requireNamespace("lavaan"))
+    stopifnot(requireNamespace("matrixcalc"))
     matrix <- get_cov(data)
-    k <- nrow(matrix)
-    rownames(matrix) <- character(length = k)
-    for (i in 1:k) {
-        rownames(matrix)[i] <- paste("V", i, sep = "")
-        if (i == 1) {
-            model_str <- paste("F =~ NA*V1")
-        } else {
-            model_str <- paste(model_str, " + V", i, sep = "")
-        }
-    }
-    model_str <- paste(model_str, " \n F ~~ 1*F", sep = "", collapse = "\n")
-    colnames(matrix) <- rownames(matrix)
-    fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
-    est <- lavaan::inspect(fit, what = "est")
-    if(any(est$theta < 0)) { # negative error
-      hancock <- NA
+    if (!matrixcalc::is.positive.semi.definite()) {
+        hancock <- NA
     } else {
-      std_lambda <- lavaan::standardizedSolution(fit)$est.std[1:k]
-      prop_lambda <- std_lambda^2 / (1 - std_lambda^2)
-      hancock <- 1 / (1 + 1 / sum(prop_lambda))
+        k <- nrow(matrix)
+        rownames(matrix) <- character(length = k)
+        for (i in 1:k) {
+            rownames(matrix)[i] <- paste("V", i, sep = "")
+            if (i == 1) {
+                model_str <- paste("F =~ NA*V1")
+            } else {
+                model_str <- paste(model_str, " + V", i, sep = "")
+            }
+        }
+        model_str <- paste(model_str, " \n F ~~ 1*F", sep = "", collapse = "\n")
+        colnames(matrix) <- rownames(matrix)
+        fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
+        est <- lavaan::inspect(fit, what = "est")
+        if(any(est$theta < 0)) { # negative error
+            hancock <- NA
+        } else {
+            std_lambda <- lavaan::standardizedSolution(fit)$est.std[1:k]
+            prop_lambda <- std_lambda^2 / (1 - std_lambda^2)
+            hancock <- 1 / (1 + 1 / sum(prop_lambda))
+        }
     }
     class(hancock) <- c("hancock")
     return(hancock)
