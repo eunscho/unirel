@@ -17,6 +17,7 @@ Imports:
     Lambda4,
     lavaan,
     psych,
+    matrixcalc,
     Rcsdp
 Suggests: 
     knitr,
