@@ -15,6 +15,7 @@
 #'@param psych.include Whether to include reliability coefficients
 #'(GLB.algebraic, GLB.fa) provided by the package psych
 #'@return alpha coefficient alpha (tau-equivalent reliability)
+#'@return std_alpha standardized alpha
 #'@return lambda2 Guttman's lambda2
 #'@return mu2 Ten Berge and Zegers' mu2
 #'@return mu3 Ten Berge and Zegers' mu3
@@ -45,6 +46,7 @@
 
 unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     alpha <- unirel::alpha(data)
+    std_alpha <- unirel::alpha(stats::cov2cor(data))
     lambda2 <- mu1(data)
     mu2 <- mu2(data)
     mu3 <- mu3(data)
@@ -74,7 +76,7 @@ unirel <- function(data, Lambda4.include = TRUE, psych.include = TRUE) {
     } else {
         glb.algebraic <- glb.fa <- NULL
     }
-    unirel <- list(alpha = alpha, lambda2 = lambda2,
+    unirel <- list(alpha = alpha, std_alpha = std_alpha, lambda2 = lambda2,
                    mu2 = mu2, mu3 = mu3, mu4 = mu4, feldt = feldt,
                    gilmer = gilmer, joreskog = joreskog, hancock = hancock,
                    heise = heise, kaisercaffrey = kaisercaffrey,
