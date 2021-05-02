@@ -43,6 +43,9 @@ gilmer <- function(data) {
   }
   Q <- sum(D)^2
   gilmer <- (Q / (Q - W)) * (sum(nondiag) / total)
+  if (gilmer > 1) {
+    gilmer <- NA
+  } 
   class(gilmer) <- c("gilmer")
   return(gilmer)
 }
