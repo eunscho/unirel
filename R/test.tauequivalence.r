@@ -35,7 +35,6 @@ test.tauequivalence <- function(data) {
         cov <- get_cov(data)
         taueq_fit  <- uni_cfa(cov, what = "fit", taueq = TRUE) 
         conge_fit <- uni_cfa(cov, what = "fit", taueq = FALSE) 
-        
     ############################################################
     #   Converting lavaan's result to variables
     ############################################################
