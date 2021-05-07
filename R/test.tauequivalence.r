@@ -32,29 +32,9 @@
 #' known but poorly understood. Organizational Research Methods, 18(2), 207-230. 
 #'
 test.tauequivalence <- function(data) {
-        stopifnot(requireNamespace("lavaan"))
-        matrix <- get_cov(data)
-        k <- nrow(matrix)
-        colnames(matrix) <- rownames(matrix) <- character(length = nrow(matrix))
-        taueq_model <- conge_model <- character(0)
-        for (i in 1:k) {
-            colnames(matrix)[i] <- rownames(matrix)[i] <- paste("V", i, sep = "")
-            if (i == 1) {
-                taueq_model <- paste("F =~ NA*V1")
-                conge_model <- paste("F =~ NA*V1")
-            } else {
-                taueq_model <- paste(taueq_model, " + equal('F=~V1')*V", i, sep = "") # equality constraints
-                conge_model <- paste(conge_model, " + V", i, sep = "")
-            }
-        }
-        taueq_model <- paste(taueq_model, " \n F ~~ 1*F", sep = "", collapse = "\n")
-        conge_model <- paste(conge_model, " \n F ~~ 1*F", sep = "", collapse = "\n")
-        taueq_output <- lavaan::cfa(taueq_model, 
-                                    sample.cov = matrix, sample.nobs = 270)
-        conge_output <- lavaan::cfa(conge_model,
-                                 sample.cov = matrix, sample.nobs = 270)
-        taueq_fit  <-  lavaan::inspect(taueq_output, what = "fit")
-        conge_fit <- lavaan::inspect(conge_output, what = "fit")
+        cov <- get_cov(data)
+        taueq_fit  <- uni_cfa(cov, what = "fit", taueq = TRUE) 
+        conge_fit <- uni_cfa(cov, what = "fit", taueq = FALSE) 
         
     ############################################################
     #   Converting lavaan's result to variables
@@ -78,9 +58,9 @@ test.tauequivalence <- function(data) {
     #   print
     ############################################################
         cat("Parameter estimates of the tau-equivalent model\n")
-        print(lavaan::inspect(taueq_output, what = "est"))
+        print(uni_cfa(cov, what = "est", taueq = TRUE))
         cat("Parameter estimates of the congeneric model\n")
-        print(lavaan::inspect(conge_output, what = "est"))
+        print(uni_cfa(cov, what = "est", taueq = FALSE))
         cat("                     CFI  TLI  RMSEA df chisquare pvalue\n")
         cat(paste("tau-equivalent (A) ", round(taueq_cfi, 3), 
                                          round(taueq_tli, 3), 

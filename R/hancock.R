@@ -5,7 +5,7 @@
 #' reliability of each item, and finds the weight that maximizes the 
 #' reliability. Hence, Hancock's H shows a different result than the reliability 
 #' estimator using conventional unit weights.
-#' @param data a dataframe or a matrix (unidimensional)
+#' @param data a dataframe or a cov (unidimensional)
 #' @return Hancock's H
 #' @export hancock
 #' @examples hancock(Graham1)
@@ -21,33 +21,14 @@
 #' @references McNeish, D. (2017). Thanks coefficient alpha, we’ll take it from 
 #' here. Psychological Methods, 23(3), 412-433.
 hancock <- function(data) {
-    stopifnot(requireNamespace("lavaan"))
     stopifnot(requireNamespace("matrixcalc"))
-    matrix <- get_cov(data)
-    if (!matrixcalc::is.positive.definite(matrix)) {
+    cov <- get_cov(data)
+    if (!matrixcalc::is.positive.definite(cov)) {
         hancock <- NA
     } else {
-        k <- nrow(matrix)
-        rownames(matrix) <- character(length = k)
-        for (i in 1:k) {
-            rownames(matrix)[i] <- paste("V", i, sep = "")
-            if (i == 1) {
-                model_str <- paste("F =~ NA*V1")
-            } else {
-                model_str <- paste(model_str, " + V", i, sep = "")
-            }
-        }
-        model_str <- paste(model_str, " \n F ~~ 1*F", sep = "", collapse = "\n")
-        colnames(matrix) <- rownames(matrix)
-        fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
-        est <- lavaan::inspect(fit, what = "est")
-        if(any(est$theta < 0)) { # negative error
-            hancock <- NA
-        } else {
-            std_lambda <- lavaan::standardizedSolution(fit)$est.std[1:k]
-            prop_lambda <- std_lambda^2 / (1 - std_lambda^2)
-            hancock <- 1 / (1 + 1 / sum(prop_lambda))
-        }
+        est <- uni_cfa(cov, what = "std")
+        prop_lambda <- est$lambda^2 / (1 - est$lambda^2)
+        hancock <- 1 / (1 + 1 / sum(prop_lambda))
     }
     class(hancock) <- c("hancock")
     return(hancock)

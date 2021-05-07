@@ -45,33 +45,15 @@
 #' @family congenerics
 #'
 joreskog <- function(data) {
-    stopifnot(requireNamespace("lavaan"))
     stopifnot(requireNamespace("matrixcalc"))
-    matrix <- get_cov(data)
-    if (!matrixcalc::is.positive.definite(matrix)) {
+    cov <- get_cov(data)
+    if (!matrixcalc::is.positive.definite(cov)) {
       joreskog <- NA
     } else {
-      k <- nrow(matrix)
-      rownames(matrix) <- character(length = k)
-      for (i in 1:k) {
-        rownames(matrix)[i] <- paste("V", i, sep = "")
-        if (i == 1) {
-          model_str <- paste("F =~ NA*V1")
-        } else {
-          model_str <- paste(model_str, " + V", i, sep = "")
-        }
-      }
-      model_str <- paste(model_str, " \n F ~~ 1*F", sep = "", collapse = "\n")
-      colnames(matrix) <- rownames(matrix)
-      fit <- lavaan::cfa(model_str, sample.cov = matrix, sample.nobs = 500)
-      est <- lavaan::inspect(fit, what = "est")
-      if(any(est$theta < 0)) { # negative error
-        joreskog <- NA
-      } else {
-        sum_lambda <- sum(est$lambda)
-        sum_theta <- sum(est$theta)
-        joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
-      }
+      est <- uni_cfa(cov)
+      sum_lambda <- sum(est$lambda)
+      sum_theta <- sum(est$theta)
+      joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
     }
     class(joreskog) <- c("joreskog")
     return(joreskog)
