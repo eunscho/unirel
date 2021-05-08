@@ -4,10 +4,12 @@
 \alias{joreskog}
 \title{Obtain Joreskog's congeneric reliability (Unidimensional CFA reliability)}
 \usage{
-joreskog(data)
+joreskog(data, nonneg_loading = FALSE)
 }
 \arguments{
 \item{data}{a dataframe or a matrix (unidimensional)}
+
+\item{nonneg_loading}{if TRUE, constraint loadings to nonnegative values}
 }
 \value{
 congeneric reliability coefficient

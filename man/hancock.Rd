@@ -4,10 +4,12 @@
 \alias{hancock}
 \title{Obtain Hancock's H (CFA version of maximal reliability)}
 \usage{
-hancock(data)
+hancock(data, nonneg_loading = FALSE)
 }
 \arguments{
-\item{data}{a dataframe or a matrix (unidimensional)}
+\item{data}{a dataframe or a cov (unidimensional)}
+
+\item{nonneg_loading}{if TRUE, constraint loadings to nonnegative values}
 }
 \value{
 Hancock's H

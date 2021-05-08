@@ -19,6 +19,8 @@ lambda4_75)}
 \value{
 alpha coefficient alpha (tau-equivalent reliability)
 
+std_alpha standardized alpha
+
 lambda2 Guttman's lambda2
 
 mu2 Ten Berge and Zegers' mu2
@@ -52,6 +54,10 @@ lambda4_75 the 75the percentile among all possible lambda4
 glb.fa the greatest lower bounds by Ten Berge & Kiers (1991) method
 
 glb.algebraic  the greatest lower bounds by Moltner & Revelle (2015) method
+
+omega_Lambda4 omega total (factors = 1) provided by the package Lambda4
+
+omega_psych omega total (nfactors = 1) provided by the package psych
 }
 \description{
 R packages that provide unidimensional reliability coefficients include
