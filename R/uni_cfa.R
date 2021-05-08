@@ -18,13 +18,13 @@ uni_cfa <- function(cov, what = "est", nonneg_loading =FALSE, taueq = FALSE) {
       model_str <- paste0(model_str, " + equal('F=~V1')*V", i)
     } else { # congeneric
       model_str <- paste0(model_str, " + l", i, "*V", i)
-      if (nonneg_loading) {
-        model_str <- paste0(model_str, "\n l", i, "> .0000001")
       }
     }
   }
   model_str <- paste0(model_str, " \n F ~~ 1*F", collapse = "\n")
-  for (i in 1:k) { # to prevent negative errors
+  for (i in 1:k) { # to prevent negative loadings or errors
+    if (nonneg_loading) {
+    model_str <- paste0(model_str, "\n l", i, "> .0000001")
     model_str <- paste0(model_str, "\n V", i, " ~~ l", i, "*V", i, "\n l", i, "> 0.0000001")
   }
   colnames(cov) <- rownames(cov)
