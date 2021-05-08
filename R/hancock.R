@@ -27,9 +27,13 @@ hancock <- function(data, nonneg_loading = FALSE) {
     if (!matrixcalc::is.positive.definite(cov)) {
         hancock <- NA
     } else {
-        est <- uni_cfa(cov, what = "std", nonneg_loading = nonneg_loading)
+      est <- uni_cfa(cov, what = "std", nonneg_loading = nonneg_loading)
+      if (any(is.na(est))) {
+        hancock <- NA
+      } else {
         prop_lambda <- est$lambda^2 / (1 - est$lambda^2)
         hancock <- 1 / (1 + 1 / sum(prop_lambda))
+      }
     }
     class(hancock) <- c("hancock")
     return(hancock)

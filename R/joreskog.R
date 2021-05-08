@@ -52,9 +52,13 @@ joreskog <- function(data, nonneg_loading = FALSE) {
       joreskog <- NA
     } else {
       est <- uni_cfa(cov, nonneg_loading = nonneg_loading)
-      sum_lambda <- sum(est$lambda)
-      sum_theta <- sum(est$theta)
-      joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
+      if (any(is.na(est))) {
+        joreskog <- NA
+      } else {
+        sum_lambda <- sum(est$lambda)
+        sum_theta <- sum(est$theta)
+        joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
+      }
     }
     class(joreskog) <- c("joreskog")
     return(joreskog)

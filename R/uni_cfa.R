@@ -32,6 +32,10 @@ uni_cfa <- function(cov, what = "est", nonneg_loading = FALSE, taueq = FALSE) {
     }
   }  
   fit <- lavaan::cfa(model_str, sample.cov = cov, sample.nobs = 500)
-  out <- lavaan::inspect(fit, what = what)
+  if (lavaan::inspect(fit, what = "converged")) {
+    out <- lavaan::inspect(fit, what = what)
+  } else {
+    out <- NA
+  }
   return(out)
 }
