@@ -24,9 +24,9 @@ uni_cfa <- function(cov, what = "est", nonneg_loading = FALSE, taueq = FALSE) {
   colnames(cov) <- rownames(cov)
   model_str <- paste0(model_str, " \n F ~~ 1*F", collapse = "\n")
   if (!taueq) { # congeneric
-    for (i in 2:k) { # to prevent negative errors
+    for (i in 1:k) { # to prevent negative errors
       model_str <- paste0(model_str, "\n V", i, " ~~ e", i, "*V", i, "\n e", i, "> 0.0000001")
-      if (nonneg_loading) { # prevent negative loadings
+      if (i > 1 & nonneg_loading) { # prevent negative loadings
         model_str <- paste0(model_str, "\n l", i, "> .0000001")
       }
     }
