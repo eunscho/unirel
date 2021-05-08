@@ -31,7 +31,6 @@ uni_cfa <- function(cov, what = "est", nonneg_loading = FALSE, taueq = FALSE) {
       }
     }
   }  
-  print(model_str)
   fit <- lavaan::cfa(model_str, sample.cov = cov, sample.nobs = 500)
   out <- lavaan::inspect(fit, what = what)
   return(out)
