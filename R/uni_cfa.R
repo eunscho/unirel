@@ -19,7 +19,7 @@ uni_cfa <- function(cov, what = "est", nonneg_loading =FALSE, taueq = FALSE) {
     } else { # congeneric
       model_str <- paste0(model_str, " + l", i, "*V", i)
       if (nonneg_loading) {
-        model_str <- paste0(model_str, "l", i, "> .0000001")
+        model_str <- paste0(model_str, "\n l", i, "> .0000001")
       }
     }
   }
