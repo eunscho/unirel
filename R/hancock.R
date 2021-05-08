@@ -6,6 +6,7 @@
 #' reliability. Hence, Hancock's H shows a different result than the reliability 
 #' estimator using conventional unit weights.
 #' @param data a dataframe or a cov (unidimensional)
+#' @param nonneg_loading if TRUE, constraint loadings to nonnegative values
 #' @return Hancock's H
 #' @export hancock
 #' @examples hancock(Graham1)
@@ -20,13 +21,13 @@
 #' Psychological Methods, 1(1), 98-107. 
 #' @references McNeish, D. (2017). Thanks coefficient alpha, we’ll take it from 
 #' here. Psychological Methods, 23(3), 412-433.
-hancock <- function(data) {
+hancock <- function(data, nonneg_loading = FALSE) {
     stopifnot(requireNamespace("matrixcalc"))
     cov <- get_cov(data)
     if (!matrixcalc::is.positive.definite(cov)) {
         hancock <- NA
     } else {
-        est <- uni_cfa(cov, what = "std")
+        est <- uni_cfa(cov, what = "std", nonneg_loading = nonneg_loading)
         prop_lambda <- est$lambda^2 / (1 - est$lambda^2)
         hancock <- 1 / (1 + 1 / sum(prop_lambda))
     }

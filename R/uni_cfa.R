@@ -6,7 +6,7 @@
 #' @export uni_cfa
 #' @return parameter estimates of unidimensional cfa model
 #' @examples uni_cfa(Graham1)
-uni_cfa <- function(cov, what = "est", taueq = FALSE) {
+uni_cfa <- function(cov, what = "est", nonneg_loading =FALSE, taueq = FALSE) {
   stopifnot(requireNamespace("lavaan"))
   k <- nrow(cov)
   rownames(cov) <- character(length = k)
@@ -17,7 +17,10 @@ uni_cfa <- function(cov, what = "est", taueq = FALSE) {
     } else if (taueq) { # tau-equivalent
       model_str <- paste0(model_str, " + equal('F=~V1')*V", i)
     } else { # congeneric
-      model_str <- paste0(model_str, " + V", i)
+      model_str <- paste0(model_str, " + l", i, "*V", i)
+      if (nonneg_loading) {
+        model_str <- paste0(model_str, "l", i, "> .0000001")
+      }
     }
   }
   model_str <- paste0(model_str, " \n F ~~ 1*F", collapse = "\n")

@@ -24,6 +24,7 @@
 #' unstandardized covariance matrix as input, and lavaan package as software.
 #'
 #' @param data a dataframe or a matrix (unidimensional)
+#' @param nonneg_loading if TRUE, constraint loadings to nonnegative values
 #' @return congeneric reliability coefficient
 #' @export joreskog
 #' @examples joreskog(Graham1)
@@ -44,13 +45,13 @@
 #' @seealso [Lambda4::omega.tot()] for a related function of the package Lambda4
 #' @family congenerics
 #'
-joreskog <- function(data) {
+joreskog <- function(data, nonneg_loading = FALSE) {
     stopifnot(requireNamespace("matrixcalc"))
     cov <- get_cov(data)
     if (!matrixcalc::is.positive.definite(cov)) {
       joreskog <- NA
     } else {
-      est <- uni_cfa(cov)
+      est <- uni_cfa(cov, nonneg_loading = nonneg_loading)
       sum_lambda <- sum(est$lambda)
       sum_theta <- sum(est$theta)
       joreskog <- sum_lambda^2/(sum_lambda^2 + sum_theta)
