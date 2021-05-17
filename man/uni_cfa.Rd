@@ -4,7 +4,13 @@
 \alias{uni_cfa}
 \title{Unidimensional confirmatory factor analysis}
 \usage{
-uni_cfa(cov, what = "est", nonneg_loading = FALSE, taueq = FALSE)
+uni_cfa(
+  cov,
+  what = "est",
+  nonneg_loading = FALSE,
+  taueq = FALSE,
+  parallel = FALSE
+)
 }
 \arguments{
 \item{cov}{observed covariances}
@@ -14,6 +20,8 @@ uni_cfa(cov, what = "est", nonneg_loading = FALSE, taueq = FALSE)
 \item{nonneg_loading}{if TRUE, constraint loadings to nonnegative values}
 
 \item{taueq}{if TRUE, a tau-equivalent model is estimated}
+
+\item{parallel}{if TRUE, a parallel model is estimated}
 }
 \value{
 parameter estimates of unidimensional cfa model
