@@ -22,5 +22,5 @@ export(mu4)
 export(unirel)
 export(test.tauequivalence)
 export(uni_cfa)
-export(simsek
+export(simsek)
 import(Rcsdp)
